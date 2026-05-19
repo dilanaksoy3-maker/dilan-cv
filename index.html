@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dilan Aksoy — Instructional Designer &amp; Digital Learning Developer</title>
+  <meta name="description" content="Instructional designer and digital learning developer. Built and scaled Denmark's first fully online FGU school from concept to 50 active learners nationwide. Copenhagen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-subtle: #faf9f7;
+      --ink: #1a1a1a;
+      --ink-soft: #3d3d3d;
+      --ink-muted: #6b6560;
+      --accent: #b05a30;
+      --accent-light: #c97a54;
+      --accent-bg: rgba(176, 90, 48, 0.06);
+      --rule: #e2ddd6;
+      --header-bg: #1a1a1a;
+      --header-text: #f0ece6;
+      --header-muted: #a39e96;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Source Sans 3', 'Georgia', serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .page-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 3rem 0 2.5rem;
+    }
+
+    header .page-wrap {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .header-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 0 5px rgba(176, 90, 48, 0.18);
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .header-name {
+      font-family: 'DM Serif Display', 'Georgia', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .header-title {
+      font-size: 1.02rem;
+      font-weight: 300;
+      color: var(--accent-light);
+      letter-spacing: 0.01em;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.2rem;
+      font-size: 0.84rem;
+      color: var(--header-muted);
+      margin-top: 0.3rem;
+    }
+
+    .header-meta a {
+      color: var(--header-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-meta a:hover { color: var(--header-text); }
+
+    .header-actions {
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-download {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--header-bg);
+      background: var(--accent-light);
+      padding: 0.45rem 1.1rem;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-download:hover { background: var(--accent); }
+
+    /* ─── NAV ─── */
+    .section-nav {
+      background: var(--header-bg);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0.7rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .section-nav .page-wrap {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .section-nav a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 0.73rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .section-nav a:hover { color: var(--header-text); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 2.5rem 0; }
+    section + section { border-top: 1px solid var(--rule); }
+
+    .section-label {
+      font-family: 'DM Serif Display', 'Georgia', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 0.45rem;
+    }
+
+    /* ─── PROFILE ─── */
+    .profile-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .entry { margin-bottom: 2rem; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .entry-role {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .entry-date {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .entry-org {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 0.1rem;
+    }
+
+    .entry-context {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .entry-details { list-style: none; padding: 0; }
+
+    .entry-details li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .entry-details li::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ─── COMPACT ENTRIES ─── */
+    .compact-entries { display: grid; gap: 1rem; }
+
+    .compact-entry .entry-desc {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── PROJECTS ─── */
+    .project {
+      margin-bottom: 1.3rem;
+      padding: 1.1rem 1.3rem;
+      background: var(--bg-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .project:last-child { margin-bottom: 0; }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .project-name {
+      font-weight: 700;
+      font-size: 0.93rem;
+      color: var(--ink);
+    }
+
+    .project-name a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+
+    .project-name a:hover { border-bottom-color: var(--accent); }
+
+    .project-commissioner {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 0.25rem;
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .project-desc a { color: var(--accent); text-decoration: none; }
+    .project-desc a:hover { text-decoration: underline; }
+
+    /* ─── EDUCATION ─── */
+    .edu-entry { margin-bottom: 1.5rem; }
+    .edu-entry:last-child { margin-bottom: 0; }
+    .edu-degree { font-weight: 700; font-size: 0.95rem; }
+
+    .edu-focus {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-details { list-style: none; padding: 0; }
+
+    .edu-details li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.2rem;
+      font-size: 0.83rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    .edu-details li::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* ─── COMPETENCIES ─── */
+    .competencies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.25rem 2rem;
+    }
+
+    .competency-item {
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* ─── TOOLS ─── */
+    .tools-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    .tool-tag {
+      font-size: 0.78rem;
+      padding: 0.22rem 0.55rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--rule);
+      border-radius: 3px;
+      color: var(--ink-soft);
+    }
+
+    .sub-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      font-weight: 600;
+      margin-top: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cert-inline, .lang-inline, .personal-inline, .framework-inline {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .cert-inline span, .lang-inline span, .personal-inline span {
+      color: var(--ink-muted);
+      font-size: 0.8rem;
+    }
+
+    .lang-inline strong { color: var(--ink); }
+
+    /* ─── REFERENCES ─── */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .ref-item {
+      padding: 1rem;
+      background: var(--bg-subtle);
+      border-radius: 4px;
+    }
+
+    .ref-name { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.1rem; }
+    .ref-title { font-size: 0.78rem; color: var(--ink-muted); margin-bottom: 0.35rem; line-height: 1.4; }
+    .ref-contact { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.6; }
+    .ref-contact a { color: var(--ink-soft); text-decoration: none; }
+    .ref-contact a:hover { color: var(--accent); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--header-bg);
+      color: var(--ink-muted);
+      padding: 1.5rem 0;
+      text-align: center;
+      font-size: 0.78rem;
+    }
+
+    footer a { color: var(--header-muted); text-decoration: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 700px) {
+      .page-wrap { padding: 0 1.2rem; }
+      header { padding: 2rem 0 1.5rem; }
+      header .page-wrap { grid-template-columns: 1fr; gap: 1.2rem; justify-items: center; text-align: center; }
+      .header-name { font-size: 2rem; }
+      .header-meta { justify-content: center; }
+      .header-actions { justify-content: center; }
+      .header-photo { width: 130px; height: 130px; }
+      .section-nav .page-wrap { gap: 0.9rem; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 0.3rem; }
+      .section-nav a { white-space: nowrap; }
+      .competencies-grid { grid-template-columns: 1fr; }
+      .ref-grid { grid-template-columns: 1fr; }
+      .entry-header, .project-header { flex-direction: column; gap: 0.1rem; }
+    }
+
+    @media print {
+      .section-nav, .header-actions { display: none; }
+      header { background: var(--header-bg) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      section { padding: 1.2rem 0; }
+      body { font-size: 10pt; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER: F-pattern optimized — photo + name + title + contact in first viewport ═══ -->
+<header>
+  <div class="page-wrap">
+    <img src="Profile.png" alt="Dilan Aksoy" class="header-photo" width="160" height="160">
+    <div class="header-text">
+      <div>
+        <h1 class="header-name">Dilan Aksoy</h1>
+        <p class="header-title">Instructional Designer, Digital Learning Developer &amp; Empathic Realist</p>
+      </div>
+      <div class="header-meta">
+        <span>Denmark</span>
+        <span>Born 07.10.1991</span>
+        <span><a href="tel:+4528919277">+45 28 91 92 77</a></span>
+        <span><a href="mailto:dilanaksoy3@gmail.com">dilanaksoy3@gmail.com</a></span>
+        <span><a href="https://www.linkedin.com/in/dilan-aksoy" target="_blank" rel="noopener">LinkedIn</a></span>
+      </div>
+      <div class="header-actions">
+        <a href="Dilan CV '26 .pdf" class="btn-download" download>Download CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="section-nav">
+  <div class="page-wrap">
+    <a href="#profile">Profile</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#competencies">Competencies</a>
+    <a href="#tools">Tools</a>
+    <a href="#references">References</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ PROFILE ═══ -->
+<section id="profile">
+  <div class="page-wrap">
+    <h2 class="section-label">Profile</h2>
+    <p class="profile-text">Built and scaled Denmark&rsquo;s first fully online FGU school from concept to 50 active learners nationwide &mdash; as founding instructional designer, content lead, and one of two founding teachers. More than fifty students reached their goals across vocational education, HF and gymnasium, employment, and &mdash; for some &mdash; sustained daily structure as the precondition for any of those.</p>
+    <p>Designs and operates digital learning environments end-to-end: Moodle architecture, learning pathways, self-built H5P activities at scale, video and onboarding content, and the daily teaching practice that feeds the platform&rsquo;s iteration. Works as the bindeled between pedagogy, technology, and organisation &mdash; translating technical requirements into teaching practice and pedagogical needs into platform decisions, rather than handing artefacts between specialists.</p>
+    <p>Continuous feedback loops between classroom and platform: learner response, completion patterns, and direct observation drive the next iteration. The build does not finish at launch; it merges into the running.</p>
+    <p>Academic background in cross-cultural studies, postcolonial and transnational literature, SLA/FLA theory, and film and media studies, applied directly to instructional design for diverse learner populations.</p>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE: 3-5 bullets per role, action verb + quantified result, strongest first ═══ -->
+<section id="experience">
+  <div class="page-wrap">
+    <h2 class="section-label">Professional Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-role">Instructional Designer &amp; Digital Learning Developer</span>
+        <span class="entry-date">August 2022 &ndash; February 2026</span>
+      </div>
+      <div class="entry-org">FGU Nordvestsj&aelig;lland &mdash; AGU-Online</div>
+      <div class="entry-context">Denmark's first fully online FGU school &middot; Moodle LMS &middot; agu-online.dk</div>
+      <ul class="entry-details">
+        <li>Operated AGU-Online from national launch through four years of growth &mdash; from a 5-learner pilot to <strong>50 active learners nationwide</strong> at peak, with the revolving-door churn typical of the FGU population (KUI assigns 6 months to 2 years per student).</li>
+        <li>Designed structured digital learning across <strong>three proficiency levels</strong> (G, E, D) and two tracks (AGU + EGU Dansk at G-level), with differentiated learning pathways, defined progression, and modular content reuse.</li>
+        <li><strong>More than fifty students reached their goals</strong> &mdash; vocational education, HF or gymnasium, employment, other forms of education, or sustained daily structure as a precondition for any of those.</li>
+        <li>Built <strong>three documented onboarding systems</strong> (AGU students, EGU students, staff) directly into the platform structure.</li>
+        <li>Designed accessibility-first for a learner population including students with anxiety, school refusal, complex trauma, neurodivergence, physical or mental illness, caretaking responsibilities, and unsafe school histories.</li>
+        <li>Produced all platform-side content: self-built H5P activities across most modules, video content (scripted, filmed, edited in Premiere Pro and Final Cut Pro), the WordPress site, and the live teaching environment in Teams.</li>
+        <li>Taught Dansk G/E/D, Engelsk G/E/D, DSA, Identitet- og medborgerskab, and EGU Dansk at G-level across the four-year period.</li>
+        <li>Ran the classroom as a live testbed for the platform &mdash; refining structure, content, and schemas through continuous feedback loops between teaching practice and platform development.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-role">Founding Instructional Designer &amp; Development Lead</span>
+        <span class="entry-date">January 2022 &ndash; June 2022</span>
+      </div>
+      <div class="entry-org">N.E.G &mdash; Audebo / EUC Nordvestsj&aelig;lland</div>
+      <div class="entry-context">Six-month project contract &middot; Platform build phase &middot; Co-founded with Head of Education Michael Jensen</div>
+      <ul class="entry-details">
+        <li>Self-taught Moodle from zero across six months while building AGU-Online&rsquo;s instructional architecture end-to-end &mdash; course structure, learning pathways, modular content logic, differentiated G/E/D pathways, the cameras-on rule, the visual logic, and the onboarding flow.</li>
+        <li>Produced most modules with self-built H5P activities &mdash; branching scenarios, interactive videos, drag-and-drop sequences, scaffolded reading exercises &mdash; designed for the cognitive and emotional profile of the FGU population.</li>
+        <li>Built the WordPress site, the marketing and instructional videos, and the foundational content library forming the operational basis of the platform.</li>
+        <li>Pitched and presented the platform to FGU Nordvestsj&aelig;lland leadership; once operations transferred, NEG retained ownership while FGU NV became the public-facing operator.</li>
+        <li>Commissioned as credited author on <strong>FGU Portfolio</strong> &mdash; five teaching modules in a ministerially funded national resource library for the FGU sector (Ministry of Children and Education).</li>
+        <li>Ran successful pilot launch with five students before national rollout in August 2022.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-role">Teacher &amp; Learning Designer</span>
+        <span class="entry-date">October 2020 &ndash; October 2021</span>
+      </div>
+      <div class="entry-org">FGU Nord &mdash; Gladsaxe</div>
+      <div class="entry-context">Dansk &middot; DSA &middot; Engelsk &middot; Matematik (vikar) &middot; Identitet &amp; Medborgerskab</div>
+      <ul class="entry-details">
+        <li>Hired as on-call substitute teacher; promoted to full-time substitute within four months and permanent contract within seven.</li>
+        <li>Taught across the full FGU subject range, including Dansk AGU G/E/D + PGU-hold, Engelsk G/E/D, DSA, and Identitet- og medborgerskab.</li>
+        <li>Designed and facilitated differentiated instruction for learners with complex and diverse needs &mdash; scaffolded learning, formative assessment, individual uddannelsesplaner.</li>
+        <li>Coordinated follow-up with guidance counsellors, leadership, and KUI.</li>
+      </ul>
+    </div>
+
+    <h3 style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-muted);margin:2rem 0 1rem;font-weight:600;">Earlier &amp; Concurrent Roles</h3>
+
+    <div class="compact-entries">
+      <div class="compact-entry">
+        <div class="entry-header">
+          <span class="entry-role">Brand Promoter</span>
+          <span class="entry-date">2010 &ndash; 2014</span>
+        </div>
+        <div class="entry-org">Promoters A/S</div>
+        <p class="entry-desc">50+ point-of-sale brand activations for international consumer brands including Bacardi Martini, Oreo, Fanta, Philadelphia, BEO, and TOPIS. Recognised for reliability and direct customer engagement.</p>
+      </div>
+      <div class="compact-entry">
+        <div class="entry-header">
+          <span class="entry-role">Formand / N&aelig;stformand &mdash; Beboerbestyrelse</span>
+          <span class="entry-date">2014 &ndash; 2017</span>
+        </div>
+        <div class="entry-org">Amagerkollegiet</div>
+        <p class="entry-desc">Voluntary leadership role across roughly two and a half years. Restructured every category of document and rule across the kollegium after a period of neglect, revamped the kollegium website, and coordinated with municipal stakeholders to complete a long-stalled pavement repair project.</p>
+      </div>
+      <div class="compact-entry">
+        <div class="entry-header">
+          <span class="entry-role">Barista</span>
+          <span class="entry-date">2014 &ndash; 2016</span>
+        </div>
+        <div class="entry-org">Baresso Coffee</div>
+        <p class="entry-desc">Full-time and part-time, alongside BA in English. Baresso Barista Certification and Latte Art Certification (2014). Offered manager position at two branches; declined both to prioritise studies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS: Merged with publications to reduce repetition ═══ -->
+<section id="projects">
+  <div class="page-wrap">
+    <h2 class="section-label">Selected Projects &amp; Publications</h2>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name"><a href="https://agu-online.dk" target="_blank" rel="noopener">AGU-Online</a></span>
+        <span class="entry-date">2022 &ndash; 2026</span>
+      </div>
+      <p class="project-desc">Founding instructional designer and content lead. Designed from scratch: course architecture, learning pathways, content library, visual identity, module structure (Moodle), hundreds of self-built H5P activities, video production, three documented onboarding systems, and the public-facing WordPress site. Live: <a href="https://agu-online.dk" target="_blank" rel="noopener">agu-online.dk</a> &middot; <a href="https://mit.agu-online.dk" target="_blank" rel="noopener">mit.agu-online.dk</a></p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">FGU Portfolio &mdash; Ministerial Publication</span>
+        <span class="entry-date">2022</span>
+      </div>
+      <div class="project-commissioner">Batavia Media ApS &amp; Seismo ApS / Ministry of Children and Education</div>
+      <p class="project-desc">Credited author. Five teaching modules published in the national FGU resource library on seismogram.dk. Funded by Undervisningsministeriet via udlodningsmidler.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <span class="project-name">Erhvervsuddannelser for alle &mdash; National Onboarding Video</span>
+        <span class="entry-date">2023 &ndash; 2024</span>
+      </div>
+      <div class="project-commissioner">Styrelsen for Undervisning og Kvalitet (STUK) / SUMH</div>
+      <p class="project-desc">Script and editorial production for a nationally commissioned accessibility-first onboarding video introducing FGU and erhvervsuddannelser to prospective learners. Partnership with Nordvestsj&aelig;llands Erhvervs- og Gymnasieuddannelser, EUC Nordvest, and SUMH (Sammenslutningen af Unge Med Handicap) &mdash; designed in consultation with young people with disabilities. Produced 2023, script approved February 2024, published 2024. Distributed nationally by STUK.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION: Compressed, strongest points only ═══ -->
+<section id="education">
+  <div class="page-wrap">
+    <h2 class="section-label">Education</h2>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">MA in English &mdash; University of Copenhagen</span>
+        <span class="entry-date">2017 &ndash; 2023</span>
+      </div>
+      <div class="edu-focus">Postcolonial, Transnational and Migration Studies &middot; Cand.mag.</div>
+      <ul class="edu-details">
+        <li>MA thesis: <em>Imagining the Migrant</em> &mdash; comparative analysis of Khaled Hosseini&rsquo;s <em>The Kite Runner</em>, Nujeen Mustafa&rsquo;s <em>Refuge</em>, and Mohsin Hamid&rsquo;s <em>Exit West</em>, through Sara Ahmed, Stuart Hall, Merriman &amp; Pearce, and Ha Jin. Supervisor: Eva Rask Knudsen. Grade: 10 (B). Exam language: English.</li>
+        <li>Coursework in didactics, SLA/FLA, cultural encounters, and structured learning design.</li>
+      </ul>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">Minor MA Level: Film &amp; Media Studies &mdash; UCPH</span>
+        <span class="entry-date">2017 &ndash; 2019</span>
+      </div>
+      <div class="edu-focus">Audiovisual Communication &middot; Fiction &amp; Non-fiction Theory</div>
+      <ul class="edu-details">
+        <li>Produced two narrative shorts: <em>Min Makker Melder Tegn</em> (fiction) and <em>Det Var Kattens</em> (mockumentary) &mdash; scripting, directing, editing.</li>
+      </ul>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">BA in English &mdash; University of Copenhagen</span>
+        <span class="entry-date">2014 &ndash; 2017</span>
+      </div>
+      <div class="edu-focus">Postcolonial Studies &middot; American Cultural Studies</div>
+      <ul class="edu-details">
+        <li>BA project: <em>Silent No More</em> &mdash; Chimamanda Ngozi Adichie&rsquo;s <em>Half of a Yellow Sun</em> through Rick Altman&rsquo;s multiple-focus narrative theory. Grade: 12 (A).</li>
+      </ul>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">BA in Cross-Cultural Studies (Tyrkisk) &mdash; UCPH</span>
+        <span class="entry-date">2010 &ndash; 2014</span>
+      </div>
+      <div class="edu-focus">Middle East Studies &middot; Turkish History, Society and Politics &middot; incl. Film &amp; Media minor</div>
+      <ul class="edu-details">
+        <li>BA project: <em>Socialrealismen i Tyrkisk Film Kontekst</em> &mdash; social realism in Turkish cinema. Primary text: <em>G&uuml;ne&#351;i G&ouml;rd&uuml;m</em>. Supervisor: Daniella Kuzmanovic. Grade: 12 (A).</li>
+        <li>Turkish language, Ottoman and modern Turkish history, nationalism, censorship, and Middle East political society.</li>
+      </ul>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">Minor BA level: Film &amp; Media Studies &mdash; UCPH</span>
+        <span class="entry-date">2012 &ndash; 2013</span>
+      </div>
+      <div class="edu-focus">Film and Media History &middot; Theory and Analysis of Fiction &middot; Film and Media Sociology</div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="entry-header">
+        <span class="edu-degree">STX &mdash; Stenl&oslash;se Gymnasium og HF (now Egedal Gymnasium &amp; HF)</span>
+        <span class="entry-date">2007 &ndash; 2010</span>
+      </div>
+      <div class="edu-focus">Engelsk A &middot; Samfundsfag A &middot; Matematik B</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMPETENCIES ═══ -->
+<section id="competencies">
+  <div class="page-wrap">
+    <h2 class="section-label">Core Competencies</h2>
+    <div class="competencies-grid">
+      <div class="competency-item">Instructional design &amp; LXD</div>
+      <div class="competency-item">LMS architecture &amp; operation (Moodle)</div>
+      <div class="competency-item">H5P content production at scale</div>
+      <div class="competency-item">Training programme &amp; onboarding design</div>
+      <div class="competency-item">Multiformat content production</div>
+      <div class="competency-item">Training needs analysis &amp; data-driven iteration</div>
+      <div class="competency-item">Foreign language didactics &amp; SLA</div>
+      <div class="competency-item">Stakeholder coordination &amp; cross-functional collaboration</div>
+      <div class="competency-item">Adult learning &amp; blended learning</div>
+      <div class="competency-item">Accessibility-first design</div>
+      <div class="competency-item">Process development &amp; workflow optimisation</div>
+      <div class="competency-item">Bindeled across pedagogy, technology &amp; organisation</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TOOLS, CERTS, LANGUAGES, PERSONAL — collapsed into one section ═══ -->
+<section id="tools">
+  <div class="page-wrap">
+    <h2 class="section-label">Tools, Languages &amp; Certifications</h2>
+
+    <div class="tools-list">
+      <span class="tool-tag">Moodle LMS</span>
+      <span class="tool-tag">H5P</span>
+      <span class="tool-tag">WordPress</span>
+      <span class="tool-tag">Articulate Rise 360</span>
+      <span class="tool-tag">Microsoft 365 &amp; Teams</span>
+      <span class="tool-tag">Google Workspace</span>
+      <span class="tool-tag">Adobe Premiere Pro</span>
+      <span class="tool-tag">Final Cut Pro</span>
+      <span class="tool-tag">Canva</span>
+      <span class="tool-tag">Doodly</span>
+      <span class="tool-tag">Basic HTML</span>
+      <span class="tool-tag">AI-assisted development (Claude, ChatGPT, Claude Code)</span>
+    </div>
+
+    <div class="sub-label">Instructional Design Frameworks</div>
+    <div class="framework-inline">
+      ADDIE &nbsp;&middot;&nbsp; SAM &nbsp;&middot;&nbsp; Bloom&rsquo;s Taxonomy &nbsp;&middot;&nbsp; Merrill&rsquo;s First Principles &nbsp;&middot;&nbsp; 70-20-10 &nbsp;&middot;&nbsp; Kirkpatrick 1&ndash;4
+    </div>
+
+    <div class="sub-label">Languages</div>
+    <div class="lang-inline">
+      <strong>Danish</strong> &mdash; Native &nbsp;&middot;&nbsp;
+      <strong>English</strong> &mdash; Native &nbsp;&middot;&nbsp;
+      <strong>Turkish</strong> &mdash; Advanced &nbsp;&middot;&nbsp;
+      <strong>Kurdish</strong> &mdash; Beginner
+    </div>
+
+    <div class="sub-label">Certifications</div>
+    <div class="cert-inline">
+      GDPR &amp; Personal Data Regulation <span>&mdash; FGU Danmark, 2021</span><br>
+      Cyber &amp; Information Security <span>&mdash; FGU Danmark, 2021</span>
+    </div>
+
+    <div class="sub-label">Personal</div>
+    <div class="personal-inline">
+      Born 07.10.1991, Copenhagen &nbsp;&middot;&nbsp; K&oslash;rekort B &nbsp;&middot;&nbsp; Behavioural profile available on request (Praice, January 2026)
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REFERENCES ═══ -->
+<section id="references">
+  <div class="page-wrap">
+    <h2 class="section-label">References</h2>
+    <div class="ref-grid">
+      <div class="ref-item">
+        <div class="ref-name">Michael Jensen</div>
+        <div class="ref-title">Head of Education, EUC Online</div>
+        <div class="ref-contact">
+          <a href="tel:+4572290311">+45 72 29 03 11</a><br>
+          <a href="mailto:micj@neg.dk">micj@neg.dk</a>
+        </div>
+      </div>
+      <div class="ref-item">
+        <div class="ref-name">Birthe Slott Nielsen</div>
+        <div class="ref-title">School Principal, FGU F&aring;revejle</div>
+        <div class="ref-contact">
+          <a href="tel:+4525271577">+45 25 27 15 77</a><br>
+          <a href="mailto:bsn@fgunvs.dk">bsn@fgunvs.dk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="page-wrap">
+    Dilan Aksoy &middot; Copenhagen &middot; <a href="mailto:dilanaksoy3@gmail.com">dilanaksoy3@gmail.com</a> &middot; <a href="https://www.linkedin.com/in/dilan-aksoy" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>
